@@ -3,6 +3,15 @@
 const contextPath = "http://localhost:8080";
 const output = document.getElementById("output");
 
+
+const myModal = new bootstrap.Modal(document.getElementById('updateModal'), "show");
+
+
+const myId = "";
+
+
+
+
 function getVillagers() {
     axios.get(contextPath + "/getVillagers")
     .then(res => {
@@ -23,6 +32,34 @@ function deleteVillager(id) {
     .then(() => getVillagers())
     .catch(err => console.error(err));
 }
+
+function getDeets(id) {
+    
+    myModal.show();
+    axios.get(contextPath + "/getVillager/" + id)
+    .then(res => {
+        const selectedVillager = res.data;
+        document.getElementById("updateVillagerId").value = selectedVillager.id;
+        document.getElementById("updateVillagerName").value = selectedVillager.name;
+        document.getElementById("updateBirthDay").value = selectedVillager.birthDay;
+        document.getElementById("updateBirthSeason").value = selectedVillager.birthSeason;
+        document.getElementById("updateFaveItems").value = selectedVillager.faveItem;
+        document.getElementById("updateLeastFaveItems").value = selectedVillager.leastFaveItem;
+
+     
+
+        
+
+
+
+        
+
+    }).catch(err => console.error(err))
+    
+}
+
+
+
 
 function renderVillager(villager) {
 
@@ -56,7 +93,9 @@ function renderVillager(villager) {
     villagerFooter.className = "card-footer";
     newVillager.appendChild(villagerFooter);
 
-    const deleteVillagerButton = document.createElement("a");
+
+    const deleteVillagerButton = document.createElement("button");
+
 
     deleteVillagerButton.className = "card-link";
     deleteVillagerButton.innerText = "Delete";
@@ -66,12 +105,16 @@ function renderVillager(villager) {
 
     villagerFooter.appendChild(deleteVillagerButton);
 
-    const updateVillagerButton = document.createElement("a");
+
+    const updateVillagerButton = document.createElement("button");
 
     updateVillagerButton.className = "card-link";
     updateVillagerButton.innerText = "Update";
+    updateVillagerButton.id = villager.id;   
     updateVillagerButton.addEventListener('click', function() {
-        updateVillager(villager.id);
+        getDeets(villager.id);
+
+
     });
 
     villagerFooter.appendChild(updateVillagerButton);
@@ -96,6 +139,28 @@ document.getElementById("villagerForm").addEventListener('submit', function (eve
     .then(() => getVillagers())
     .catch(err => console.error(err));
 });
+
+document.getElementById("updateVillagerForm").addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const data = {
+        id: this.updateVillagerId.value,
+        name: this.updateVillagerName.value,
+        birthDay: this.updateBirthDay.value,
+        birthSeason: this.updateBirthSeason.value,
+        faveItem: this.updateFaveItems.value,
+        leastFaveItem: this.updateLeastFaveItems.value
+    };
+
+    const id = updateVillagerId.value;
+
+    
+
+    axios.put(contextPath + "/updateVillager/" + id, data)
+    .then(() => getVillagers() + myModal.hide())
+    .catch(err => console.error(err));
+});
+
 
 getVillagers();
 
