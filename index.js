@@ -3,10 +3,12 @@
 const contextPath = "http://localhost:8080";
 const output = document.getElementById("output");
 
+
 const myModal = new bootstrap.Modal(document.getElementById('updateModal'), "show");
 
 
 const myId = "";
+
 
 
 
@@ -44,7 +46,7 @@ function getDeets(id) {
         document.getElementById("updateFaveItems").value = selectedVillager.faveItem;
         document.getElementById("updateLeastFaveItems").value = selectedVillager.leastFaveItem;
 
-        //updateVillager(id, selectedVillager);
+     
 
         
 
@@ -56,21 +58,6 @@ function getDeets(id) {
     
 }
 
-//function updateVillager(id, updatedVillager) {
-
-   // const updatedVillager = {
-    //    name: this.updateVillagerName.value,
-   //     birthDay: this.updateBirthDay.value,
-   //     birthSeason: this.updateBirthSeason.value,
-    //    faveItem: this.updateFaveItems.value,
-   //     leastFaveItem: this.updateLeastFaveItems.value
-  //  };
-//
-
-   // axios.put(contextPath + "/updateVillager/" + id, updatedVillager)
-   // .then(() => getVillagers())
-   // .catch(err => console.error(err));
-//}
 
 
 
@@ -106,7 +93,9 @@ function renderVillager(villager) {
     villagerFooter.className = "card-footer";
     newVillager.appendChild(villagerFooter);
 
+
     const deleteVillagerButton = document.createElement("button");
+
 
     deleteVillagerButton.className = "card-link";
     deleteVillagerButton.innerText = "Delete";
@@ -116,6 +105,7 @@ function renderVillager(villager) {
 
     villagerFooter.appendChild(deleteVillagerButton);
 
+
     const updateVillagerButton = document.createElement("button");
 
     updateVillagerButton.className = "card-link";
@@ -123,6 +113,7 @@ function renderVillager(villager) {
     updateVillagerButton.id = villager.id;   
     updateVillagerButton.addEventListener('click', function() {
         getDeets(villager.id);
+
 
     });
 
@@ -169,6 +160,7 @@ document.getElementById("updateVillagerForm").addEventListener('submit', functio
     .then(() => getVillagers() + myModal.hide())
     .catch(err => console.error(err));
 });
+
 
 getVillagers();
 
