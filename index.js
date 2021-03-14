@@ -3,6 +3,7 @@
 const contextPath = "http://localhost:8080";
 const output = document.getElementById("output");
 
+
 const myModal = new bootstrap.Modal(document.getElementById('updateModal'), "show");
 
 
@@ -44,7 +45,9 @@ function getDeets(id) {
         document.getElementById("updateFaveItems").value = selectedVillager.faveItem;
         document.getElementById("updateLeastFaveItems").value = selectedVillager.leastFaveItem;
 
+
         //updateVillager(id, selectedVillager);
+
 
         
 
@@ -55,6 +58,7 @@ function getDeets(id) {
     }).catch(err => console.error(err))
     
 }
+
 
 //function updateVillager(id, updatedVillager) {
 
@@ -74,6 +78,7 @@ function getDeets(id) {
 
 
 
+
 function renderVillager(villager) {
 
     const newColumn = document.createElement("div");
@@ -90,13 +95,17 @@ function renderVillager(villager) {
     const villagerTitle = document.createElement("h5");
     villagerTitle.className = "card-title";
     villagerTitle.innerText = villager.name;
+
     villagerTitle.id = "card-title";
+
     villagerBody.appendChild(villagerTitle);
 
     const villagerText = document.createElement("p");
     villagerText.className = "card-text";
+
     villagerText.id = "card-text";
     villagerText.innerHTML = "Birthday: " + villager.birthSeason + " " + villager.birthDay;
+
     villagerText.innerHTML += "<br>";
     villagerText.innerHTML += "Favourite Items: " + villager.faveItem;
     villagerText.innerHTML += "<br>";
@@ -107,7 +116,9 @@ function renderVillager(villager) {
     villagerFooter.className = "card-footer";
     newVillager.appendChild(villagerFooter);
 
+
     const deleteVillagerButton = document.createElement("button");
+
 
     deleteVillagerButton.className = "card-link";
     deleteVillagerButton.innerText = "Delete";
@@ -116,6 +127,7 @@ function renderVillager(villager) {
     });
 
     villagerFooter.appendChild(deleteVillagerButton);
+
 
     const updateVillagerButton = document.createElement("button");
 
