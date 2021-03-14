@@ -4,21 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <title>Villager Tracker</title>
 </head>
 <body>
-            
-    <h1>Villager Tracker</h1>
+
+    <div class="container"> 
+        <div class="row">
+            <div class="col-sm"></div>
+                <div class="col-sm">       
+                    <h1>Villager Tracker</h1>
+                </div>
+            <div class="col-sm"></div>
+        </div>
+    </div>
+
+
 
     <main class="container">
         <div class="row">
-            <section class="col-2">
+            <div class="col-3">
+            
+            
 
-                <form id="villagerForm">    
+                <form id="villagerForm">  
+                    <h4>Create a Villager</h4>  
+
 
                     <div>
                         <p>
@@ -56,44 +72,53 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
-            </section>
 
+
+            </div>
+            <div class="col-9">
+        
 
         <div id="output" class="m-2 card-group row row-cols-4 g-4">  
+        </div> 
+    </div>
     
         </div>
+
+    </main>
+
 
         <div class="modal" tabindex="-1" role="dialog" id="updateModal">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Update Villager</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                 </div>
                 <div class="modal-body">
                   <p>
                       <main class="container">
                         <div class="row">
-                            <section class="col-2">
+
+                            <section class="col-4">
+                                
             
                                 <form id="updateVillagerForm">    
 
-                                    <div>
-                                        <p>
-                                            <input type="hidden" id="updateVillagerId">
-                                        </p>
-                                    </div>
+                                    
+                                    <input type="hidden" id="updateVillagerId">
+                                       
             
-                                 <div>
+                                <div>
                                      <p>
-                                        <input type="text" id="updateVillagerName" class="col" placeholder="Name">
+                                        <input type="text" id="updateVillagerName"  placeholder="Name">
                                      </p>
-                                    </div>
-                                 <div>
+                                </div>
+                                <div>
                                     <p>
-                                        <input type="number" id="updateBirthDay" min="1" max="28" placeholder="Birth Day" class="col">
+                                        <input type="number" id="updateBirthDay" min="1" max="28" placeholder="Birth Day" >
+
                                     </p>
                                 </div>
                                 <div>
@@ -109,26 +134,33 @@
                                 </div>
                                 <div>
                                     <p>
-                                        <input type="text" id="updateFaveItems" class="col" placeholder="Favourite Items">
+                                        <input type="text" id="updateFaveItems" placeholder="Favourite Items">
+
+ 
                                     </p>    
                                 </div>
                                 <div>
                                     <p>
-                                        <input type="text" id="updateLeastFaveItems" class="col" placeholder="Least Favourite Items">
+
+                                        <input type="text" id="updateLeastFaveItems" placeholder="Least Favourite Items">
                                     </p>    
                                 </div>
-                                <div>
+                        </div>
+                                
+                                    <div class="modal-footer">
                                     <button type="reset" class="btn btn-primary" id="updateReset">Reset</button>
+                                    
                                     <button type="submit" class="btn btn-primary" id="updateSubmit">Submit</button>
                                 </div>
+                                
+
                             </form>
                         </section>
                     </p>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
+                
+
               </div>
             </div>
           </div>
@@ -138,14 +170,7 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-        
 
-        <div id="output" class="m-2 card-group row row-cols-4 g-4">
-    
-    
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
       <script src="index.js"></script>
     
