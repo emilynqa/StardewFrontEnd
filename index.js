@@ -11,7 +11,6 @@ const myId = "";
 
 
 
-
 function getVillagers() {
     axios.get(contextPath + "/getVillagers")
     .then(res => {
@@ -46,7 +45,9 @@ function getDeets(id) {
         document.getElementById("updateFaveItems").value = selectedVillager.faveItem;
         document.getElementById("updateLeastFaveItems").value = selectedVillager.leastFaveItem;
 
-     
+
+        //updateVillager(id, selectedVillager);
+
 
         
 
@@ -57,6 +58,23 @@ function getDeets(id) {
     }).catch(err => console.error(err))
     
 }
+
+
+//function updateVillager(id, updatedVillager) {
+
+   // const updatedVillager = {
+    //    name: this.updateVillagerName.value,
+   //     birthDay: this.updateBirthDay.value,
+   //     birthSeason: this.updateBirthSeason.value,
+    //    faveItem: this.updateFaveItems.value,
+   //     leastFaveItem: this.updateLeastFaveItems.value
+  //  };
+//
+
+   // axios.put(contextPath + "/updateVillager/" + id, updatedVillager)
+   // .then(() => getVillagers())
+   // .catch(err => console.error(err));
+//}
 
 
 
@@ -77,12 +95,17 @@ function renderVillager(villager) {
     const villagerTitle = document.createElement("h5");
     villagerTitle.className = "card-title";
     villagerTitle.innerText = villager.name;
+
+    villagerTitle.id = "card-title";
+
     villagerBody.appendChild(villagerTitle);
 
     const villagerText = document.createElement("p");
     villagerText.className = "card-text";
-    
-    villagerText.innerHTML = "Birthday = " + villager.birthSeason + " " + villager.birthDay;
+
+    villagerText.id = "card-text";
+    villagerText.innerHTML = "Birthday: " + villager.birthSeason + " " + villager.birthDay;
+
     villagerText.innerHTML += "<br>";
     villagerText.innerHTML += "Favourite Items: " + villager.faveItem;
     villagerText.innerHTML += "<br>";
@@ -113,7 +136,6 @@ function renderVillager(villager) {
     updateVillagerButton.id = villager.id;   
     updateVillagerButton.addEventListener('click', function() {
         getDeets(villager.id);
-
 
     });
 
@@ -160,7 +182,6 @@ document.getElementById("updateVillagerForm").addEventListener('submit', functio
     .then(() => getVillagers() + myModal.hide())
     .catch(err => console.error(err));
 });
-
 
 getVillagers();
 

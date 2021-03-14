@@ -1,0 +1,22 @@
+body {
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fvignette3.wikia.nocookie.net%2Fstardewvalley%2Fimages%2F5%2F50%2FWiki-background%2Frevision%2Flatest%3Fcb%3D20140123174700&f=1&nofb=1")
+}
+
+h1 {
+    top: 50%;
+left: 50%;
+    text-align: center;
+    color: #602701;
+    
+    background-color: #fcf19f;
+}
+
+#villagerForm { 
+    padding: 16px;
+    margin-top: 32px;
+    color: #602701;
+
+    background-color: #fcf19f;
+
+}
+
