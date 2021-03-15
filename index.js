@@ -122,6 +122,7 @@ function renderVillager(villager) {
 
     deleteVillagerButton.className = "card-link";
     deleteVillagerButton.innerText = "Delete";
+    deleteVillagerButton.id = "Delete" + villager.name;
     deleteVillagerButton.addEventListener('click', function() {
         deleteVillager(villager.id);
     });
@@ -133,7 +134,7 @@ function renderVillager(villager) {
 
     updateVillagerButton.className = "card-link";
     updateVillagerButton.innerText = "Update";
-    updateVillagerButton.id = villager.id;   
+    updateVillagerButton.id = "Update" + villager.name;    
     updateVillagerButton.addEventListener('click', function() {
         getDeets(villager.id);
 
